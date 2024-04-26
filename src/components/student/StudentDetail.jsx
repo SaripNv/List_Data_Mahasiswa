@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./StudentDetail.css";
 
 const StudentDetail = ({ students }) => {
@@ -33,6 +33,9 @@ const StudentDetail = ({ students }) => {
           </p>
         </div>
       </div>
+      <Link to="/" className="back-button">
+        Kembali
+      </Link>
     </div>
   );
 };

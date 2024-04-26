@@ -13,6 +13,7 @@ const App = () => {
       photo: "alvarez.jpg",
     },
     {
+      id: 2,
       name: "Bunga",
       age: 22,
       major: "Seni dan Desain",
