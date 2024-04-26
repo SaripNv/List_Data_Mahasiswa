@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import StudentList from "./components/student/StudentList";
+import StudentDetail from "./components/student/StudentDetail";
 
-function App() {
+const App = () => {
+  const [students] = useState([
+    {
+      id: 1,
+      name: "Alvarez",
+      age: 22,
+      major: "Sistem Informasi",
+      photo: "alvarez.jpg",
+    },
+    {
+      name: "Bunga",
+      age: 22,
+      major: "Seni dan Desain",
+      photo: "bunga.jpg",
+    },
+    {
+      id: 3,
+      name: "Alice",
+      age: 20,
+      major: "Administrasi",
+      photo: "alice.jpg",
+    },
+    {
+      id: 4,
+      name: "Alex",
+      age: 23,
+      major: "Hukum",
+      photo: "alex.jpg",
+    },
+    {
+      id: 5,
+      name: "Mega",
+      age: 21,
+      major: "Komunikasi",
+      photo: "mega.jpg",
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<StudentList students={students} />} />
+          <Route
+            path="/detail/:id"
+            element={<StudentDetail students={students} />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
